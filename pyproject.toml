@@ -1,0 +1,31 @@
+[tool.poetry]
+name = "otel-fastapi-noisemaker"
+version = "0.1.0"
+description = ""
+authors = ["James Hodgkinson <james@terminaloutcomes.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.scripts]
+make_noise = "otel_fastapi_noisemaker.make_noise:main"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+opentelemetry-instrumentation-fastapi = "0.45b0"
+opentelemetry-exporter-otlp = "1.24.0"
+opentelemetry-distro = "0.45b0"
+fastapi = "^0.111.1"
+pydantic = "^2.8.2"
+uvicorn = "^0.30.1"
+httpx = "^0.27.0"
+click = "^8.1.7"
+
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.5.2"
+mypy = "^1.10.1"
+pytest = "^8.2.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
