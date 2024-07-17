@@ -2,10 +2,6 @@
 
 Testing what it looks like to self-spam to show off usage.
 
-## Installation
-
-Make sure you run
-
 ## Running it
 
 You need to set the following environment variables so the OTEL collector will work:
