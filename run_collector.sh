@@ -19,7 +19,9 @@ fi
 docker run --rm \
     -e "SPLUNK_ACCESS_TOKEN=${SPLUNK_ACCESS_TOKEN}" \
     -e "SPLUNK_REALM=${SPLUNK_REALM}" \
-    -e "SPLUNK_LISTEN_INTERFACE=0.0.0.0" \
-    -p 4317:4317 \
-    --name noisemaker_otelcol "quay.io/signalfx/splunk-otel-collector:${COLLECTOR_VERSION}" \
+    -e "SPLUNK_LISTEN_INTERFACE=otel-collector" \
+    --hostname otel-collector \
+    --name noisemaker_otelcol \
+    -p 127.0.0.1:4317:4317 \
+    "quay.io/signalfx/splunk-otel-collector:${COLLECTOR_VERSION}" \
     --feature-gates "-component.UseLocalHostAsDefaultHost"
