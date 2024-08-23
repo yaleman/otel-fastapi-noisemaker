@@ -51,7 +51,34 @@ def main(realm: str, environment: str, days_back: int) -> None:
         )
         sys.exit(1)
 
-    print(json.dumps(res.json()))
+    try:
+        res_json = res.json()
+    except json.JSONDecodeError as error:
+        print(
+            f'JSON Error decoding response from url="{url}" error="{error}" response_body="{res.text}"',
+            file=sys.stderr,
+        )
+        sys.exit(1)
+    except Exception as error:
+        print(
+            f'Error decoding response from url="{url}" error="{error}" response_body="{res.text}"',
+            file=sys.stderr,
+        )
+        sys.exit(1)
+
+    if "data" not in res_json:
+        print(f"No data key in response, got {json.dumps(res.text)}", file=sys.stderr)
+        exit(1)
+
+    data = res_json["data"]
+    for node in data.get("nodes", []):
+        node["entry_type"] = "node"
+        print(json.dumps(node))
+
+    for edge in data.get("edges", []):
+        edge["entry_type"] = "edge"
+        edge["serviceName"] = edge.get("fromNode", edge.get("serviceName", "<unknown>"))
+        print(json.dumps(edge))
 
 
 if __name__ == "__main__":
