@@ -27,6 +27,7 @@ backoff = "^2.2.1"
 ruff = "^0.5.2"
 mypy = "^1.10.1"
 pytest = "^8.2.2"
+types-requests = "^2.32.0.20240712"
 
 [build-system]
 requires = ["poetry-core"]
