@@ -30,6 +30,9 @@ mypy = "^1.13.0"
 pytest = "^8.2.2"
 types-requests = "^2.32.0.20240712"
 
+[tool.mypy]
+plugins = "pydantic.mypy"
+
 [build-system]
 requires = [
     "poetry-core",
