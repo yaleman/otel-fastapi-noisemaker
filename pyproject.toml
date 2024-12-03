@@ -2,7 +2,9 @@
 name = "otel-fastapi-noisemaker"
 version = "0.1.0"
 description = ""
-authors = ["James Hodgkinson <james@terminaloutcomes.com>"]
+authors = [
+    "James Hodgkinson <james@terminaloutcomes.com>",
+]
 license = "MIT"
 readme = "README.md"
 
@@ -22,7 +24,6 @@ click = "^8.1.7"
 loguru = "^0.7.2"
 backoff = "^2.2.1"
 
-
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.5.2"
 mypy = "^1.10.1"
@@ -30,5 +31,17 @@ pytest = "^8.2.2"
 types-requests = "^2.32.0.20240712"
 
 [build-system]
-requires = ["poetry-core"]
+requires = [
+    "poetry-core",
+]
 build-backend = "poetry.core.masonry.api"
+
+[project]
+name = "otel-fastapi-noisemaker"
+description = ""
+license = "MIT"
+version = "0.1.0"
+readme = "README.md"
+authors = [
+    { name = "James Hodgkinson", email = "james@terminaloutcomes.com" },
+]
