@@ -27,7 +27,7 @@ backoff = "^2.2.1"
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.8.2"
 mypy = "^1.13.0"
-pytest = "^8.2.2"
+pytest = "^8.3.4"
 types-requests = "^2.32.0.20241016"
 
 [tool.mypy]
