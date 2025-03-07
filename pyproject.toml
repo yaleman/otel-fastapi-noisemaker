@@ -28,7 +28,7 @@ backoff = "^2.2.1"
 ruff = "^0.9.9"
 mypy = "^1.15.0"
 pytest = "^8.3.4"
-types-requests = "^2.32.0.20241016"
+types-requests = "^2.32.0.20250306"
 
 [tool.mypy]
 plugins = "pydantic.mypy"
