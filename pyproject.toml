@@ -1,50 +1,42 @@
-[tool.poetry]
-name = "otel-fastapi-noisemaker"
-version = "0.1.0"
-description = ""
-authors = [
-    "James Hodgkinson <james@terminaloutcomes.com>",
-]
-license = "MIT"
-readme = "README.md"
 
-[tool.poetry.scripts]
+
+[project]
+name = "otel-fastapi-noisemaker"
+description = ""
+license = { text = "MIT" }
+version = "0.2.0"
+readme = "README.md"
+authors = [{ name = "James Hodgkinson", email = "james@terminaloutcomes.com" }]
+requires-python = "<4.0,>=3.12"
+dependencies = [
+    "opentelemetry-instrumentation-fastapi==0.45b0",
+    "opentelemetry-exporter-otlp==1.24.0",
+    "opentelemetry-distro==0.45b0",
+    "fastapi<1.0.0,>=0.115.12",
+    "pydantic<3.0.0,>=2.11.3",
+    "uvicorn<1.0.0,>=0.34.1",
+    "httpx<1.0.0,>=0.28.1",
+    "click<9.0.0,>=8.1.8",
+    "loguru<1.0.0,>=0.7.3",
+    "backoff<3.0.0,>=2.2.1",
+]
+
+[project.scripts]
 make_noise = "otel_fastapi_noisemaker.make_noise:main"
 
-[tool.poetry.dependencies]
-python = "^3.12"
-opentelemetry-instrumentation-fastapi = "0.45b0"
-opentelemetry-exporter-otlp = "1.24.0"
-opentelemetry-distro = "0.45b0"
-fastapi = "^0.115.12"
-pydantic = "^2.11.3"
-uvicorn = "^0.34.1"
-httpx = "^0.28.1"
-click = "^8.1.8"
-loguru = "^0.7.3"
-backoff = "^2.2.1"
+[dependency-groups]
+dev = [
+    "ruff>=0.11.6,<1.0.0",
+    "mypy>=1.15.0,<2.0.0",
+    "pytest>=8.3.5,<9.0.0",
+    "types-requests<3.0.0.0,>=2.32.0.20250328",
+    "pyright>=1.1.400",
+]
 
-[tool.poetry.group.dev.dependencies]
-ruff = "^0.11.6"
-mypy = "^1.15.0"
-pytest = "^8.3.5"
-types-requests = "^2.32.0.20250328"
 
 [tool.mypy]
 plugins = "pydantic.mypy"
 
 [build-system]
-requires = [
-    "poetry-core",
-]
-build-backend = "poetry.core.masonry.api"
-
-[project]
-name = "otel-fastapi-noisemaker"
-description = ""
-license = "MIT"
-version = "0.1.0"
-readme = "README.md"
-authors = [
-    { name = "James Hodgkinson", email = "james@terminaloutcomes.com" },
-]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"

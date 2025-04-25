@@ -22,7 +22,7 @@ export OTEL_RESOURCE_ATTRIBUTES="service.namespace=${SERVICE_NAMESPACE},deployme
 # export OTEL_PYTHON_FASTAPI_EXCLUDED_URLS="/healthcheck,/ws,/metrics"
 
 # https://www.uvicorn.org/deployment/
-poetry run opentelemetry-instrument \
+uv run opentelemetry-instrument \
     uvicorn otel_fastapi_noisemaker:app \
         --host "127.0.0.1" --port "${SERVICE_PORT}" \
         --forwarded-allow-ips '*' \
